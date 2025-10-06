@@ -1,0 +1,19 @@
+/* 
+ * TODO: O CONTEÚDO COMPLETO DO FICHEIRO CSS DO TEMA DEVE SER COLADO AQUI.
+ * 
+ * Este ficheiro deve conter todo o CSS do tema WordPress, incluindo:
+ * - Bootstrap classes
+ * - Custom theme styles
+ * - Icon fonts
+ * - Responsive breakpoints
+ * - Dark theme variables
+ * 
+ * Após colar o CSS, certifique-se de que:
+ * - As variáveis CSS (var(--nome-da-variavel)) estão definidas
+ * - Os estilos do tema escuro (.dark) funcionam corretamente
+ * - As classes de ícones (icon-lupa, icon-colapse, etc.) estão incluídas
+ */
+
+:host {
+  display: block;
+}

@@ -1,14 +1,124 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>AIOD Header Component - Test Page</title>
 
-    <script type="module" src="/build/aiod-header-component.esm.js"></script>
-    <script nomodule src="/build/aiod-header-component.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
-  </body>
+  <script type="module" src="/build/aiod-header-component.esm.js"></script>
+  <script nomodule src="/build/aiod-header-component.js"></script>
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    .demo-section {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .demo-title {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .demo-description {
+      margin-bottom: 1.5rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AIOD Header Component - Test Cases</h1>
+    
+    <div class="demo-section">
+      <div class="demo-title">1. Default Header - Not Logged In</div>
+      <div class="demo-description">
+        Default variant, user not logged in, shows login button and main navigation menu
+      </div>
+      <aiod-header
+        variant="default"
+        is-logged-in="false"
+        login-url="https://auth.aiod.eu/login"
+        home-url="https://aiod.eu/">
+      </aiod-header>
+    </div>
+
+    <div class="demo-section">
+      <div class="demo-title">2. Default Header - Logged In</div>
+      <div class="demo-description">
+        Default variant, user logged in, shows user avatar and name
+      </div>
+      <aiod-header
+        variant="default"
+        is-logged-in="true"
+        user-name="João Silva"
+        user-avatar-url="https://via.placeholder.com/40x40/007bff/white?text=JS"
+        home-url="https://aiod.eu/">
+      </aiod-header>
+    </div>
+
+    <div class="demo-section">
+      <div class="demo-title">3. Dashboard Header</div>
+      <div class="demo-description">
+        Dashboard variant with search input and collapse button
+      </div>
+      <aiod-header
+        variant="dashboard"
+        is-logged-in="true"
+        user-name="Maria Santos"
+        user-avatar-url="https://via.placeholder.com/40x40/28a745/white?text=MS"
+        home-url="https://aiod.eu/">
+      </aiod-header>
+    </div>
+
+    <div class="demo-section">
+      <div class="demo-title">4. Custom Properties Test</div>
+      <div class="demo-description">
+        Testing custom URLs and user data
+      </div>
+      <aiod-header
+        variant="default"
+        is-logged-in="true"
+        user-name="Ana Costa"
+        user-avatar-url="https://via.placeholder.com/40x40/dc3545/white?text=AC"
+        login-url="https://custom-auth.aiod.eu/signin"
+        home-url="https://custom.aiod.eu/">
+      </aiod-header>
+    </div>
+  </div>
+
+  <script>
+    // Test theme switching functionality
+    console.log('AIOD Header Component loaded successfully!');
+    
+    // Log when components are ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const headers = document.querySelectorAll('aiod-header');
+      console.log(`Found ${headers.length} aiod-header components`);
+    });
+  </script>
+</body>
 </html>
