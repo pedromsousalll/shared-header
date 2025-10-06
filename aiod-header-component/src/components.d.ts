@@ -6,56 +6,80 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface AiodHeader {
         /**
-          * The first name
+          * @default '/'
          */
-        "first": string;
+        "homeUrl": string;
         /**
-          * The last name
+          * @default false
          */
-        "last": string;
+        "isLoggedIn": boolean;
         /**
-          * The middle name
+          * @default '#'
          */
-        "middle": string;
+        "loginUrl": string;
+        /**
+          * @default 'https://via.placeholder.com/40x40?text=U'
+         */
+        "userAvatarUrl": string;
+        /**
+          * @default ''
+         */
+        "userName": string;
+        /**
+          * @default 'default'
+         */
+        "variant": 'default' | 'dashboard';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAiodHeaderElement extends Components.AiodHeader, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAiodHeaderElement: {
+        prototype: HTMLAiodHeaderElement;
+        new (): HTMLAiodHeaderElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "aiod-header": HTMLAiodHeaderElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface AiodHeader {
         /**
-          * The first name
+          * @default '/'
          */
-        "first"?: string;
+        "homeUrl"?: string;
         /**
-          * The last name
+          * @default false
          */
-        "last"?: string;
+        "isLoggedIn"?: boolean;
         /**
-          * The middle name
+          * @default '#'
          */
-        "middle"?: string;
+        "loginUrl"?: string;
+        /**
+          * @default 'https://via.placeholder.com/40x40?text=U'
+         */
+        "userAvatarUrl"?: string;
+        /**
+          * @default ''
+         */
+        "userName"?: string;
+        /**
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'dashboard';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "aiod-header": AiodHeader;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "aiod-header": LocalJSX.AiodHeader & JSXBase.HTMLAttributes<HTMLAiodHeaderElement>;
         }
     }
 }
